@@ -9,6 +9,6 @@
     @include('electo.sections.hero')
 
     {{-- Features Section --}}
-    @include('electo.components.features.features')
+    @include('electo.sections.features')
 
 @endsection

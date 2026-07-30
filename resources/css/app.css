@@ -1,3 +1,153 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+|--------------------------------------------------------------------------
+| ELECTO DESIGN SYSTEM
+|--------------------------------------------------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --primary:#2563EB;
+    --secondary:#7C3AED;
+    --accent:#06B6D4;
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --background:#081225;
+    --surface:#10192D;
+
+    --glass:rgba(255,255,255,.08);
+    --glass-border:rgba(255,255,255,.12);
+
+    --text:#F8FAFC;
+    --muted:#94A3B8;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--background);
+    color:var(--text);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Poppins',sans-serif;
+}
+
+.container-electo{
+    max-width:1280px;
+    margin:auto;
+    padding-left:24px;
+    padding-right:24px;
+}
+
+.glass-nav{
+    background:rgba(16,25,45,.80);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.shadow-electo{
+    box-shadow:0 20px 60px rgba(37,99,235,.18);
+}
+
+.btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 30px;
+    border-radius:16px;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(135deg,#2563EB,#7C3AED);
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 30px;
+    border-radius:16px;
+    color:white;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    transition:.3s;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.floating{
+    animation:floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+.hero-title{
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(3.5rem,8vw,5.5rem);
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-2px;
+    color:#ffffff;
+}
+
+.section-title{
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(2.5rem,6vw,4rem);
+    font-weight:700;
+    line-height:1.15;
+    color:#ffffff;
+}
+
+.gradient-text{
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.lead{
+    margin-top:1.5rem;
+    font-size:1.125rem;
+    line-height:1.9;
+    color:var(--muted);
+}
+
+.card{
+    background:var(--surface);
+    border-radius:24px;
+    padding:24px;
+}
+
+.glass-card{
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    border:1px solid var(--glass-border);
+    border-radius:28px;
+    padding:32px;
+}
