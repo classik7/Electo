@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('electo.layouts.dashboard')
 
 @section('content')
 <div class="max-w-6xl mx-auto py-10 px-4">

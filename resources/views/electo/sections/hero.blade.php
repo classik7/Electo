@@ -1,120 +1,51 @@
-<section class="relative overflow-hidden">
+<section
+    class="electo-landing-bg relative overflow-hidden pb-24 pt-32 sm:pt-36 lg:pb-32 lg:pt-40"
+>
 
-    <div class="container-electo mx-auto flex min-h-screen items-center">
+    {{-- Background Glow --}}
+    <div
+        class="pointer-events-none absolute left-[5%] top-[15%] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl dark:bg-blue-500/15">
+    </div>
 
-        <div class="grid w-full items-center gap-16 lg:grid-cols-2">
+    <div
+        class="pointer-events-none absolute right-[5%] top-[20%] h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl dark:bg-cyan-400/10">
+    </div>
 
-            <!-- LEFT SIDE -->
+    <div
+        class="pointer-events-none absolute bottom-[5%] left-[40%] h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl">
+    </div>
 
-            <div>
 
-                <span
-                    class="inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
+    <div class="landing-container relative">
 
-                    🚀 Next Generation Election Platform
+        <div
+            class="grid items-center gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:gap-12 xl:gap-16"
+        >
 
-                </span>
+            {{-- ================================================= --}}
+            {{-- LEFT --}}
+            {{-- ================================================= --}}
 
-                <h1 class="hero-title mt-8">
+            <div class="order-2 min-w-0 lg:order-1">
 
-                    Secure
-
-                    <span class="gradient-text">
-
-                        Digital
-
-                    </span>
-
-                    Elections.
-
-                </h1>
-
-                <p class="lead mt-8">
-
-                    Electo enables governments,
-                    universities,
-                    organizations,
-                    churches,
-                    NGOs,
-                    associations,
-                    companies and institutions to conduct
-                    secure,
-                    transparent
-                    and trustworthy elections from anywhere
-                    in the world.
-
-                </p>
-
-                <div class="mt-10 flex flex-wrap gap-5">
-
-                    <a href="{{ route('register') }}"
-                       class="btn-primary">
-
-                        Create Organization
-
-                    </a>
-
-                    <a href="{{ route('login') }}"
-                       class="btn-secondary">
-
-                        Join Election
-
-                    </a>
-
-                </div>
+                @include('electo.components.hero.hero-left')
 
             </div>
 
-            <!-- RIGHT SIDE -->
 
-            <div class="glass-card">
+            {{-- ================================================= --}}
+            {{-- RIGHT --}}
+            {{-- ================================================= --}}
+
+            <div
+                class="order-1 min-w-0 lg:order-2"
+            >
 
                 <div
-                    class="rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 p-10 text-center shadow-electo">
+                    class="landing-dashboard w-full"
+                >
 
-                    @include('electo.components.logo.logo')
-
-                    <p class="mt-6 text-blue-100">
-
-                        Secure. Transparent. Trusted.
-
-                    </p>
-
-                </div>
-
-                <div class="mt-6 grid grid-cols-2 gap-5">
-
-                    <div class="card text-center">
-
-                        <h3 class="text-4xl font-bold text-blue-400">
-
-                            99.99%
-
-                        </h3>
-
-                        <p class="mt-2 text-slate-400">
-
-                            Election Integrity
-
-                        </p>
-
-                    </div>
-
-                    <div class="card text-center">
-
-                        <h3 class="text-4xl font-bold text-purple-400">
-
-                            500K+
-
-                        </h3>
-
-                        <p class="mt-2 text-slate-400">
-
-                            Votes Cast
-
-                        </p>
-
-                    </div>
+                    @include('electo.components.dashboard-preview.index')
 
                 </div>
 

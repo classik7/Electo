@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Organization extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'owner_id',
         'name',
         'slug',
-        'logo',
         'email',
         'phone',
         'website',
@@ -22,16 +22,22 @@ class Organization extends Model
         'city',
         'address',
         'description',
-        'verification_status',
-        'subscription_plan',
         'status',
+        'subscription_plan',
+        'verified_at',
     ];
 
-    /**
-     * Owner of the organization.
-     */
+    protected $casts = [
+        'verified_at' => 'datetime',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(User::class, 'owner_id');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

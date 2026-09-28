@@ -1,52 +1,127 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+
+    <!-- Header -->
+
+    <x-electo.auth.header
+        title="Create your free account"
+        subtitle="Start building secure elections in less than 2 minutes."
+    />
+
+    <form
+        method="POST"
+        action="{{ route('register') }}"
+        class="space-y-6"
+    >
+
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <!-- Full Name -->
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <x-electo.ui.input
+            label="Full Name"
+            name="name"
+            icon="user"
+            placeholder="Enter your full name"
+            required
+        />
+
+        <!-- Email -->
+
+        <x-electo.ui.input
+            label="Email Address"
+            name="email"
+            type="email"
+            icon="envelope"
+            placeholder="you@example.com"
+            required
+        />
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <x-electo.ui.input
+            label="Password"
+            name="password"
+            type="password"
+            icon="lock-closed"
+            placeholder="Create a strong password"
+            required
+        />
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+        <x-electo.ui.input
+            label="Confirm Password"
+            name="password_confirmation"
+            type="password"
+            icon="shield-check"
+            placeholder="Confirm your password"
+            required
+        />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        <!-- Terms -->
+
+        <div class="flex items-start gap-3">
+
+            <input
+                id="terms"
+                type="checkbox"
+                required
+                class="mt-1 h-5 w-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+            >
+
+            <label
+                for="terms"
+                class="text-sm leading-6 text-slate-600"
+            >
+
+                I agree to the
+
+                <a
+                    href="#"
+                    class="font-semibold text-indigo-600 hover:underline"
+                >
+                    Terms of Service
+                </a>
+
+                and
+
+                <a
+                    href="#"
+                    class="font-semibold text-indigo-600 hover:underline"
+                >
+                    Privacy Policy
+                </a>
+
+            </label>
+
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <!-- Register Button -->
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <x-electo.ui.button
+            type="submit"
+            variant="primary"
+            size="lg"
+            class="w-full justify-center"
+        >
+
+            Create Free Account
+
+        </x-electo.ui.button>
+
     </form>
+
+    <x-electo.ui.divider
+        label="Already have an account?"
+    />
+
+    <a
+        href="{{ route('login') }}"
+        class="flex items-center justify-center rounded-2xl border border-slate-300 py-4 font-semibold text-slate-700 transition hover:bg-slate-100"
+    >
+
+        Sign In
+
+    </a>
+
 </x-guest-layout>
