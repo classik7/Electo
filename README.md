@@ -1,59 +1,196 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Electo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Electo is a full-stack election management and digital voting platform built with Laravel 12 and PHP. It provides organizations with tools to create and manage elections, register voters and candidates, conduct voting workflows, process results, and issue verifiable certificates.
 
-## About Laravel
+The application also provides a versioned REST API for mobile clients and is deployed on AWS EC2.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Live Demo
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Web Application:** http://13.60.29.19
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+> The live deployment is available as a project demonstration.
 
-## Learning Laravel
+## Core Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Election Management
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Create and manage organizations
+- Create and schedule elections
+- Configure election positions
+- Manage candidates
+- Manage voters
+- Assign voters to elections
+- Bulk candidate import
+- Bulk voter import
+- Election type management
 
-## Laravel Sponsors
+### Voter Workflow
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Voter authentication
+- Election selection
+- Voter accreditation
+- Voting sessions
+- Ballot management
+- Vote review before submission
+- Vote submission
+- Voting completion workflow
+- Voting history
 
-### Premium Partners
+### Results & Certificates
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Election results processing
+- Candidate result views
+- Certificate issuance
+- Certificate display
+- Certificate verification using a verification code
 
-## Contributing
+### Security
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Laravel authentication
+- Role-based access control
+- Permission management
+- Two-factor authentication (2FA)
+- Recovery codes
+- Passkey authentication
+- Laravel Sanctum API authentication
+- Protected authenticated routes
+- Protected mobile API endpoints
 
-## Code of Conduct
+### Notifications
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- In-app notifications
+- Unread notification count
+- Mark individual notifications as read
+- Mark all notifications as read
 
-## Security Vulnerabilities
+## REST API
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Electo includes a versioned REST API under:
 
-## License
+`/api/v1`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The API provides functionality for:
+
+- Authentication
+- Current user information
+- Organizations
+- Elections
+- Election details
+- Election results
+- Voting sessions
+- Vote review and submission
+- Voting history
+- Notifications
+- Administrative election management
+
+Protected API routes use **Laravel Sanctum** authentication.
+
+## Technology Stack
+
+### Backend
+
+- PHP 8.2+
+- Laravel 12
+- Laravel Blade
+- Laravel Sanctum
+- Spatie Laravel Permission
+
+### Frontend
+
+- Blade
+- Tailwind CSS
+- Alpine.js
+- Axios
+- Vite
+
+### Database
+
+- MySQL
+- Laravel Eloquent ORM
+- Laravel migrations
+
+### Security & Authentication
+
+- Laravel Authentication
+- Laravel Sanctum
+- Two-Factor Authentication
+- Google Authenticator-compatible 2FA
+- Passkeys / WebAuthn
+- Role-Based Access Control
+
+### Supporting Packages
+
+- Maatwebsite Excel
+- Simple QR Code
+- Blade Heroicons
+
+### Deployment
+
+- AWS EC2
+- Ubuntu
+- Nginx
+- PHP-FPM
+- MySQL
+- Composer
+- Node.js
+- npm
+- Vite
+
+## Architecture
+
+Electo follows a Laravel MVC architecture with dedicated application areas for:
+
+- Organizations
+- Elections
+- Candidates
+- Voters
+- Accreditation
+- Voting
+- Results
+- Certificates
+- Notifications
+- Settings
+- API authentication
+
+The application separates browser-based workflows from its versioned REST API for mobile clients.
+
+## Engineering Highlights
+
+This project demonstrates practical experience with:
+
+- Full-stack Laravel application development
+- PHP backend development
+- REST API development
+- Authentication and authorization
+- Role-based access control
+- Two-factor authentication
+- Passkey authentication
+- Election and voting business logic
+- Database-driven workflows
+- Bulk data import
+- Result processing
+- Certificate generation and verification
+- Mobile API integration
+- AWS server deployment
+- Nginx configuration
+- PHP-FPM configuration
+- MySQL database management
+- Production environment configuration
+
+## Local Development
+
+### Requirements
+
+- PHP 8.2+
+- Composer
+- MySQL
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/classik7/Electo.git
+cd Electo
